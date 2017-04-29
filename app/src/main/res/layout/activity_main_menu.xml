@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.paperplanes.knowquiz.activity.MainMenuActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logo"/>
+
+        <Button
+            android:layout_width="@dimen/btn_play_min_width"
+            android:layout_height="@dimen/btn_play_min_height"
+            android:layout_centerInParent="true"
+            android:onClick="onPlayClick"
+            android:background="@drawable/selector_btn_bg"
+            android:drawableTop="@drawable/ic_play"
+            android:textStyle="bold"
+            android:textSize="@dimen/btn_main_menu_play_text"
+            android:textColor="@android:color/white"
+            android:text="@string/btn_play"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_margin_6"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/common_padding_6"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/common_margin_3"
+                android:layout_marginEnd="@dimen/common_margin_3"
+                android:minWidth="@dimen/btn_main_menu_min_size"
+                android:minHeight="@dimen/btn_main_menu_min_size"
+                android:padding="@dimen/btn_main_menu_padding"
+                android:onClick="onSettingsClick"
+                android:background="@drawable/selector_btn_bg_green"
+                android:src="@drawable/ic_settings"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/common_margin_3"
+                android:layout_marginEnd="@dimen/common_margin_3"
+                android:minWidth="@dimen/btn_main_menu_min_size"
+                android:minHeight="@dimen/btn_main_menu_min_size"
+                android:padding="@dimen/btn_main_menu_padding"
+                android:onClick="onScoreClick"
+                android:background="@drawable/selector_btn_bg_green"
+                android:src="@drawable/ic_chart"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/btn_main_menu_min_size"
+                android:minHeight="@dimen/btn_main_menu_min_size"
+                android:padding="@dimen/btn_main_menu_padding"
+                android:onClick="onAboutClick"
+                android:background="@drawable/selector_btn_bg_green"
+                android:src="@drawable/ic_about"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/common_margin_1"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/version"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

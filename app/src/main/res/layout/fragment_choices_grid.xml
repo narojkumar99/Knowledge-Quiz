@@ -1,0 +1,73 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/common_padding_1"
+    android:paddingRight="@dimen/common_padding_1"
+    android:paddingTop="@dimen/common_padding_1"
+    tools:context=".fragment.ChoicesFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/common_padding_1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_choice_a"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/common_margin_2"
+            android:layout_marginEnd="@dimen/common_margin_2"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_bg"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/choices_text"
+            android:text="Button"/>
+
+        <Button
+            android:id="@+id/btn_choice_c"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_bg"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/choices_text"
+            android:text="Button"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_choice_b"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/common_margin_2"
+            android:layout_marginEnd="@dimen/common_margin_2"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_bg"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/choices_text"
+            android:text="Button"/>
+
+        <Button
+            android:id="@+id/btn_choice_d"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_bg"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/choices_text"
+            android:text="Button"/>
+
+    </LinearLayout>
+
+</LinearLayout>

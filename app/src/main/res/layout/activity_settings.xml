@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.paperplanes.knowquiz.activity.SettingsActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/common_margin_6"
+        android:orientation="vertical"
+        android:background="@drawable/bg_primary_blue">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_margin_1"
+            android:textAlignment="center"
+            android:textSize="@dimen/settings_title_text"
+            android:textColor="@android:color/white"
+            android:text="@string/settings"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/common_margin_4"
+            android:background="@android:color/white"/>
+
+        <CheckBox
+            android:id="@+id/check_sound"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onSoundCheckClick"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/settings_text"
+            android:text="@string/setttings_sound"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,188 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.paperplanes.knowquiz.activity.QuizActivity" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/quiz_game_header_height"
+            android:background="@color/colorPrimaryDark">
+
+            <LinearLayout
+                android:id="@+id/layout_lifes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_margin_1"
+                android:layout_marginLeft="@dimen/common_margin_1"
+                android:layout_marginStart="@dimen/common_margin_1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/life_icon_size"
+                    android:layout_height="@dimen/life_icon_size"
+                    android:src="@drawable/ic_heart"/>
+
+                <ImageView
+                    android:layout_width="@dimen/life_icon_size"
+                    android:layout_height="@dimen/life_icon_size"
+                    android:src="@drawable/ic_heart"/>
+
+                <ImageView
+                    android:layout_width="@dimen/life_icon_size"
+                    android:layout_height="@dimen/life_icon_size"
+                    android:src="@drawable/ic_heart"/>
+
+                <ImageView
+                    android:layout_width="@dimen/life_icon_size"
+                    android:layout_height="@dimen/life_icon_size"
+                    android:src="@drawable/ic_heart"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_lifes"
+                android:layout_marginLeft="@dimen/common_margin_1"
+                android:layout_marginStart="@dimen/common_margin_1"
+                android:textColor="@color/toolbar_text"
+                android:textSize="@dimen/toolbar_text"
+                android:text="@string/score"/>
+
+            <TextView
+                android:id="@+id/text_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_lifes"
+                android:layout_toRightOf="@id/textView1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/toolbar_text"
+                android:textSize="@dimen/toolbar_text"
+                android:text="0"/>
+
+
+            <FrameLayout
+                android:id="@+id/layout_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/common_margin_1"
+                android:layout_marginEnd="@dimen/common_margin_1"
+                android:layout_marginRight="@dimen/common_margin_1">
+
+                <ImageView
+                    android:layout_width="@dimen/timer_circle_size"
+                    android:layout_height="@dimen/timer_circle_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/bg_circle"/>
+
+                <TextView
+                    android:id="@+id/text_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/toolbar_text"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/toolbar_text"
+                    android:text="20"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/text_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/layout_timer"
+                android:layout_toStartOf="@id/layout_timer"
+                android:layout_marginTop="@dimen/common_margin_1"
+                android:layout_marginRight="@dimen/common_margin_3"
+                android:layout_marginEnd="@dimen/common_margin_3"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/quiz_game_header_category_text"
+                android:text="Category"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_2"
+            android:layout_marginLeft="@dimen/common_margin_2"
+            android:layout_marginRight="@dimen/common_margin_2"
+            android:background="@drawable/bg_primary_blue"
+            android:textAlignment="center"
+            android:textSize="@dimen/question_text"
+            android:textColor="@android:color/white"
+            android:text="This is the question"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:id="@+id/layout_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/common_margin_2"
+                android:visibility="visible"
+                android:background="@drawable/bg_primary_blue">
+
+                <ImageView
+                    android:id="@+id/image_question"
+                    android:layout_width="@dimen/question_img"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_margin_1"
+                    android:layout_marginBottom="@dimen/common_margin_1"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/common_padding_1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/bg_round_rect"
+                    android:src="@drawable/tux"/>
+
+            </ScrollView>
+
+            <!--<fragment-->
+                <!--android:id="@+id/fragment_choices"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginTop="6dp"-->
+                <!--android:layout_marginBottom="5dp"-->
+                <!--android:name="knowquizz.fragment.ChoicesFragment"-->
+                <!--tools:layout="@layout/fragment_choices_grid"/>-->
+
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/common_margin_2">
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

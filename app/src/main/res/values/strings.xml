@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Knowledge Quiz</string>
+
+    <string name="about_content">Programming: A. Aris</string>
+    <string name="version">v1.0</string>
+
+    <string name="score">Skor:</string>
+
+    <string name="cat_random_category">Kategori Acak</string>
+
+    <string name="correct_answer">Jawaban benar:</string>
+    <string name="wrong_answer">Jawaban salah:</string>
+    <string name="btn_replay">Ulangi</string>
+    <string name="btn_menu">Menu</string>
+    <string name="btn_score">Skor</string>
+    <string name="btn_play">Mulai</string>
+
+    <string name="settings">Pengaturan</string>
+    <string name="setttings_sound">Suara</string>
+    <string name="choose_category">Pilih Kategori</string>
+    <string name="about_text">Tentang</string>
+
+    <string name="reset_score">Reset Skor</string>
+</resources>

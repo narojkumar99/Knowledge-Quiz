@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_margin_1">5dp</dimen>
+    <dimen name="common_margin_2">6dp</dimen>
+    <dimen name="common_margin_3">10dp</dimen>
+    <dimen name="common_margin_4">12dp</dimen>
+    <dimen name="common_margin_5">16dp</dimen>
+    <dimen name="common_margin_6">20dp</dimen>
+
+    <dimen name="common_padding_1">5dp</dimen>
+    <dimen name="common_padding_2">6dp</dimen>
+    <dimen name="common_padding_3">10dp</dimen>
+    <dimen name="common_padding_4">12dp</dimen>
+    <dimen name="common_padding_5">16dp</dimen>
+    <dimen name="common_padding_6">20dp</dimen>
+
+    <dimen name="about_img_size">200dp</dimen>
+    <dimen name="about_content_text">16sp</dimen>
+
+    <dimen name="category_header_img_size">170dp</dimen>
+    <dimen name="category_btn_spacing">5dp</dimen>
+
+    <dimen name="btn_category_min_width">220dp</dimen>
+    <dimen name="btn_main_menu_min_size">70dp</dimen>
+    <dimen name="btn_main_menu_text">18sp</dimen>
+    <dimen name="btn_main_menu_padding">10dp</dimen>
+    <dimen name="btn_main_menu_play_text">22sp</dimen>
+    <dimen name="btn_play_min_height">80dp</dimen>
+    <dimen name="btn_play_min_width">140dp</dimen>
+
+    <dimen name="game_over_text">24sp</dimen>
+    <dimen name="game_over_stat_text">20sp</dimen>
+    <dimen name="score_item_text">20sp</dimen>
+    <dimen name="high_score_text">26sp</dimen>
+
+    <dimen name="quiz_game_header_height">60dp</dimen>
+    <dimen name="life_icon_size">24dp</dimen>
+    <dimen name="toolbar_text">20sp</dimen>
+    <dimen name="quiz_game_header_category_text">12sp</dimen>
+    <dimen name="timer_circle_size">48dp</dimen>
+    <dimen name="question_text">22sp</dimen>
+    <dimen name="question_img">220dp</dimen>
+    <dimen name="choices_text">15sp</dimen>
+
+    <dimen name="settings_title_text">24sp</dimen>
+    <dimen name="settings_text">18sp</dimen>
+
+</resources>

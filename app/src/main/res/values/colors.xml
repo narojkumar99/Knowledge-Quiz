@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorAccent">#FFAC00</color>
+
+    <color name="toolbar_text">#FFFFFF</color>
+
+    <color name="orange">#ffa51b</color>
+    <color name="orange_darker">#f26901</color>
+    <color name="orange_darker_darker">#9f4704</color>
+
+    <color name="color_primary_semi_trans">#880D47A1</color>
+    <color name="color_primary_dark_semi_trans">#66000000</color>
+
+    <color name="btn_normal_text">#ffffff</color>
+    <color name="btn_correct_text">#ffffff</color>
+    <color name="btn_wrong_text">#ffffff</color>
+
+    <color name="high_score_bg">#3CB549</color>
+</resources>
