@@ -277,6 +277,9 @@ public class QuizActivity extends ActivityFullscreen
         boolean isHighScore = false;
         if (mGame.getScore() > mLastScore) isHighScore = true;
         intent.putExtra(KEY_IS_HIGH_SCORE, isHighScore);
+        if (mGame.getCategory() != null) {
+            intent.putExtra(CategoryActivity.EXTRA_CATEGORY_ID, mGame.getCategory().getId());
+        }
         startActivity(intent);
     }
 }

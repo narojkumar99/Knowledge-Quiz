@@ -15,7 +15,7 @@ import java.io.OutputStream;
  * Created by abdularis on 25/04/17.
  */
 
-public class SimpleSQLiteOpenHelper {
+class SimpleSQLiteOpenHelper {
     private static final String TAG = SimpleSQLiteOpenHelper.class.getSimpleName();
 
     private static final String ASSET_DB_DIR = "databases/";
@@ -25,7 +25,7 @@ public class SimpleSQLiteOpenHelper {
     private int mDbVersion;
     private SQLiteDatabase mDatabase;
 
-    public SimpleSQLiteOpenHelper(@NonNull Context context, @NonNull String dbName, int dbVersion) {
+    SimpleSQLiteOpenHelper(@NonNull Context context, @NonNull String dbName, int dbVersion) {
         DB_PATH = context.getFilesDir().getParentFile().getPath() + "/" + ASSET_DB_DIR;
         mDatabase = null;
         mContext = context;
@@ -33,7 +33,7 @@ public class SimpleSQLiteOpenHelper {
         mDbVersion = dbVersion;
     }
 
-    public SQLiteDatabase getDatabase() {
+    SQLiteDatabase getDatabase() {
         if (mDatabase != null ) {
             if (!mDatabase.isOpen()) {
                 mDatabase = null;

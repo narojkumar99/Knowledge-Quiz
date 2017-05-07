@@ -163,6 +163,10 @@ public class QuizGame {
         }
     }
 
+    public Category getCategory() {
+        return mCurrCategory;
+    }
+
     public boolean isGameOver() {
         return mLifes <= 0;
     }

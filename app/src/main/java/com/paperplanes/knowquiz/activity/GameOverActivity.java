@@ -15,6 +15,7 @@ public class GameOverActivity extends ActivityFullscreen {
 
     private SoundManager mSoundManager;
     private boolean isHighScore;
+    private int mLastCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class GameOverActivity extends ActivityFullscreen {
             correctAnswer.setText(String.valueOf(b.getInt(QuizActivity.KEY_CORRECT_ANSWER)));
             wrongAnswer.setText(String.valueOf(b.getInt(QuizActivity.KEY_WRONG_ANSWER)));
             isHighScore = b.getBoolean(QuizActivity.KEY_IS_HIGH_SCORE);
+            mLastCategory = b.getInt(CategoryActivity.EXTRA_CATEGORY_ID);
         }
         if (!isHighScore) {
             View textHighScore = findViewById(R.id.text_high_score);
@@ -52,6 +54,7 @@ public class GameOverActivity extends ActivityFullscreen {
         mSoundManager.playSound(SoundManager.SOUND_CLICK);
 
         Intent intent = new Intent(this, QuizActivity.class);
+        intent.putExtra(CategoryActivity.EXTRA_CATEGORY_ID, mLastCategory);
         startActivity(intent);
     }
 

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.paperplanes.knowquiz.R;
 import com.paperplanes.knowquiz.core.GameSettings;
+import com.paperplanes.knowquiz.core.SoundManager;
 import com.paperplanes.knowquiz.data.QuizDatabase;
 import com.paperplanes.knowquiz.model.Category;
 
@@ -55,6 +56,7 @@ public class ScoreActivity extends ActivityFullscreen {
     }
 
     public void onResetScoreClick(View view) {
+        SoundManager.getInstance(this).playSound(SoundManager.SOUND_CLICK);
         for (Score s : mScores) {
             s.score = 0;
         }

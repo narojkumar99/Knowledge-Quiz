@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 
 public class Question {
 
+    private int mId;
     private String mText;
     private Drawable mImage;
     private QuestionAnswer mQuestionAnswer;
@@ -22,6 +23,14 @@ public class Question {
         mImage = image;
         mQuestionAnswer = questionAnswer;
         mCategory = category;
+    }
+
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int id) {
+        mId = id;
     }
 
     public String getText() {
@@ -55,4 +64,5 @@ public class Question {
     public void setCategory(Category category) {
         mCategory = category;
     }
+
 }

@@ -23,22 +23,21 @@ import com.paperplanes.knowquiz.model.QuestionAnswer;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
 public class QuizDatabase {
-    private static final String TAG = QuizDbHelper.class.getSimpleName();
+    private static final String TAG = QuizDatabase.class.getSimpleName();
 
-    private static final int MAX_RANDOM_TRY = 12;
+    private static final int MAX_RANDOM_TRY = 10;
 
     private QuizDbHelper mDbHelper;
     private SQLiteDatabase mReadDB;
     private SQLiteDatabase mWriteDB;
 
-    private SparseArray<Set<Integer>> mUsed;
+    private SparseArray<Set<Integer>> mAsked;
     private SparseArray<Category> mCategories;
     private ArrayList<Category> mCategoryArray;
     private ArrayList<Integer> mCategoryIds;
@@ -72,34 +71,24 @@ public class QuizDatabase {
         mCategoryArray = new ArrayList<>();
         mCategoryIds = new ArrayList<>();
         mQuestCat = new SparseArray<>();
-        mUsed = new SparseArray<>();
+        mAsked = new SparseArray<>();
         mRand = new Random();
         mRand.setSeed(System.currentTimeMillis());
 
-        String[] cols;
-        cols = new String[]{
-                CategoryEntry._ID,
-                CategoryEntry.COLUMN_NAME_NAME
-        };
-        Cursor cur = mReadDB.query(CategoryEntry.TABLE_NAME, cols, null, null, null, null, null);
-        cur.moveToFirst();
-        while (!cur.isAfterLast()) {
-            Category cat = new Category(cur.getInt(0), cur.getString(1));
-            mCategories.put(cat.getId(), cat);
-            mCategoryIds.add(cat.getId());
-            mCategoryArray.add(cat);
-            cur.moveToNext();
-        }
-        cur.close();
+        initQuestionCategory();
+        initCategoryLists();
+        initAskedEntries();
+    }
 
-        cols = new String[]{
+    private void initQuestionCategory() {
+        String[] cols = {
                 QuestionEntry._ID, QuestionEntry.COLUMN_NAME_CATEGORY
         };
-        cur = mReadDB.query(QuestionEntry.TABLE_NAME, cols, null, null, null, null, null);
-        cur.moveToFirst();
-        while (!cur.isAfterLast()) {
-            int questionId = cur.getInt(0);
-            int categoryId = cur.getInt(1);
+        Cursor cursor = mReadDB.query(QuestionEntry.TABLE_NAME, cols, null, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            int questionId = cursor.getInt(0);
+            int categoryId = cursor.getInt(1);
 
             ArrayList<Integer> questionIds = mQuestCat.get(categoryId);
             if (questionIds == null) {
@@ -109,9 +98,50 @@ public class QuizDatabase {
 
             questionIds.add(questionId);
 
-            cur.moveToNext();
+            cursor.moveToNext();
         }
-        cur.close();
+        cursor.close();
+    }
+
+    private void initCategoryLists() {
+        String[] cols = {
+                CategoryEntry._ID,
+                CategoryEntry.COLUMN_NAME_NAME
+        };
+        Cursor cursor = mReadDB.query(CategoryEntry.TABLE_NAME, cols, null, null, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Category cat = new Category(cursor.getInt(0), cursor.getString(1));
+            mCategories.put(cat.getId(), cat);
+            mCategoryIds.add(cat.getId());
+            mCategoryArray.add(cat);
+            cursor.moveToNext();
+        }
+        cursor.close();
+    }
+
+    private void initAskedEntries() {
+        String[] cols = {
+                AskedEntry.COLUMN_NAME_CATEGORY_ID, AskedEntry.COLUMN_NAME_QUESTION_ID
+        };
+        Cursor cursor = mReadDB.query(AskedEntry.TABLE_NAME, cols, null, null, null, null, null);
+
+        int categoryId, questionId;
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            categoryId = cursor.getInt(0);
+            questionId = cursor.getInt(1);
+
+            Set<Integer> questionIds = mAsked.get(categoryId);
+            if (questionIds == null) {
+                questionIds = new HashSet<>();
+                mAsked.put(categoryId, questionIds);
+            }
+            questionIds.add(questionId);
+
+            cursor.moveToNext();
+        }
+        cursor.close();
     }
 
     public ArrayList<Category> getCategories() {
@@ -119,7 +149,7 @@ public class QuizDatabase {
     }
 
     public void resetRandom() {
-        mUsed.clear();
+        mAsked.clear();
     }
 
     public Question getRandomQuestion(Context context, Category category) {
@@ -154,6 +184,7 @@ public class QuizDatabase {
             }
 
             Question q = new Question();
+            q.setId(questionId);
             q.setText(qRes.getString(0));
             q.setImage(drawable);
             q.setQuestionAnswer(getQuestionAnswer(questionId));
@@ -168,10 +199,6 @@ public class QuizDatabase {
     }
 
     public void insertQuestion(Question q) {
-        if (mWriteDB == null) {
-            mWriteDB = mDbHelper.getDatabase();
-        }
-
         if (q != null) {
             Bitmap bitmap = ((BitmapDrawable) q.getImage()).getBitmap();
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -211,6 +238,25 @@ public class QuizDatabase {
         return insertedIndex;
     }
 
+    private void insertIntoAsked(int categoryId, int questionId) {
+        ContentValues values = new ContentValues();
+        values.put(AskedEntry.COLUMN_NAME_CATEGORY_ID, categoryId);
+        values.put(AskedEntry.COLUMN_NAME_QUESTION_ID, questionId);
+
+        mWriteDB.insert(AskedEntry.TABLE_NAME, null, values);
+    }
+
+    private void clearAskedRecords(int categoryId) {
+        if (categoryId == -1) {
+            mWriteDB.delete(AskedEntry.TABLE_NAME, null, null);
+        }
+        else {
+            String selection = AskedEntry.COLUMN_NAME_CATEGORY_ID + "=?";
+            String[] selArgs = { String.valueOf(categoryId) };
+            mWriteDB.delete(AskedEntry.TABLE_NAME, selection, selArgs);
+        }
+    }
+
     private QuestionAnswer getQuestionAnswer(int questionId) {
         String[] columns = {
                 AnswerEntry._ID,
@@ -240,11 +286,24 @@ public class QuizDatabase {
         cursor.close();
 
         // randomize answer
-        String str = choices.get(qa.getCorrect());
-        Collections.shuffle(choices, mRand);
-        qa.setCorrect(choices.indexOf(str));
+        shuffleQuestionAnswer(qa);
 
         return qa;
+    }
+
+    private void shuffleQuestionAnswer(QuestionAnswer qa) {
+        ArrayList<String> choices = qa.getChoices();
+        String correctStr = choices.get(qa.getCorrect());
+        int randIdx;
+        for (int i = choices.size() - 1; i >= 0; i--) {
+            randIdx = Math.abs(mRand.nextInt()) % (i+1);
+
+            String temp = choices.get(i);
+            choices.set(i, choices.get(randIdx));
+            choices.set(randIdx, temp);
+        }
+
+        qa.setCorrect(choices.indexOf(correctStr));
     }
 
     private int getCorrectAnswerIndex(int questionId) {
@@ -266,15 +325,18 @@ public class QuizDatabase {
     }
 
     private int getUnusedQuestionId(int categoryId) {
-        Set<Integer> usedIds = mUsed.get(categoryId);
+        Set<Integer> usedIds = mAsked.get(categoryId);
         if (usedIds == null) {
             usedIds = new HashSet<>();
-            mUsed.put(categoryId, usedIds);
+            mAsked.put(categoryId, usedIds);
         }
 
         ArrayList<Integer> questionIds = mQuestCat.get(categoryId);
-        if (usedIds.size() >= questionIds.size()) usedIds.clear();
-        Log.d(TAG, "UsedIds: " + usedIds.size() + " of " + questionIds.size());
+        if (usedIds.size() >= questionIds.size()) {
+            usedIds.clear();
+            clearAskedRecords(categoryId);
+        }
+        Log.d(TAG, "UsedIds: Cat(" + categoryId + ") " + usedIds.size() + " of " + questionIds.size());
 
         int questionId;
         int size = questionIds.size();
@@ -285,6 +347,7 @@ public class QuizDatabase {
             used = usedIds.contains(questionId);
             if (!used) {
                 usedIds.add(questionId);
+                insertIntoAsked(categoryId, questionId);
                 return questionId;
             }
             tryCount++;
@@ -298,6 +361,7 @@ public class QuizDatabase {
                     Log.d(TAG, "LinearSearch: [Found] " + i + " (UnusedId)");
 
                     usedIds.add(i);
+                    insertIntoAsked(categoryId, questionId);
                     return i;
                 }
             }
@@ -352,9 +416,9 @@ public class QuizDatabase {
         static final String COLUMN_NAME_NAME = "name";
     }
 
-    static abstract class ScoreEntry implements BaseColumns {
-        static final String TABLE_NAME = "scores";
+    static abstract class AskedEntry {
+        static final String TABLE_NAME = "asked";
         static final String COLUMN_NAME_CATEGORY_ID = "category_id";
-        static final String COLUMN_NAME_SCORE = "score";
+        static final String COLUMN_NAME_QUESTION_ID = "question_id";
     }
 }
