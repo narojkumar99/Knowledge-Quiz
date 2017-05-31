@@ -3,7 +3,7 @@ package com.paperplanes.knowquiz.core;
 import android.content.Context;
 import android.util.Log;
 
-import com.paperplanes.knowquiz.data.QuizDatabase;
+import com.paperplanes.knowquiz.database.QuizDatabase;
 import com.paperplanes.knowquiz.model.Category;
 import com.paperplanes.knowquiz.model.PlayerAnswer;
 import com.paperplanes.knowquiz.model.Question;

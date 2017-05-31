@@ -155,7 +155,7 @@ public class ChoicesFragment extends Fragment {
         for (Button btn : mChoices) {
             btn.setText("");
             btn.setTextColor(getResources().getColor(R.color.btn_normal_text));
-            btn.setBackgroundResource(R.drawable.selector_btn_bg);
+            btn.setBackgroundResource(R.drawable.selector_btn_blue);
             btn.setVisibility(View.VISIBLE);
             btn.setAlpha(1f);
         }

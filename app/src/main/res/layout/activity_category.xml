@@ -64,7 +64,7 @@
                     android:minWidth="@dimen/btn_category_min_width"
                     android:padding="@dimen/btn_main_menu_padding"
                     android:onClick="onRandomCatClick"
-                    android:background="@drawable/selector_btn_bg_green"
+                    android:background="@drawable/selector_btn_green"
                     android:textSize="@dimen/btn_main_menu_text"
                     android:textColor="@android:color/white"
                     android:text="@string/cat_random_category"/>

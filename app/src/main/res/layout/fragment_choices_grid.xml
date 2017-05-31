@@ -23,7 +23,7 @@
             android:layout_marginRight="@dimen/common_margin_2"
             android:layout_marginEnd="@dimen/common_margin_2"
             android:layout_weight="1"
-            android:background="@drawable/selector_btn_bg"
+            android:background="@drawable/selector_btn_blue"
             android:textColor="@android:color/white"
             android:textSize="@dimen/choices_text"
             android:text="Button"/>
@@ -33,7 +33,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/selector_btn_bg"
+            android:background="@drawable/selector_btn_blue"
             android:textColor="@android:color/white"
             android:textSize="@dimen/choices_text"
             android:text="Button"/>
@@ -53,7 +53,7 @@
             android:layout_marginRight="@dimen/common_margin_2"
             android:layout_marginEnd="@dimen/common_margin_2"
             android:layout_weight="1"
-            android:background="@drawable/selector_btn_bg"
+            android:background="@drawable/selector_btn_blue"
             android:textColor="@android:color/white"
             android:textSize="@dimen/choices_text"
             android:text="Button"/>
@@ -63,7 +63,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/selector_btn_bg"
+            android:background="@drawable/selector_btn_blue"
             android:textColor="@android:color/white"
             android:textSize="@dimen/choices_text"
             android:text="Button"/>

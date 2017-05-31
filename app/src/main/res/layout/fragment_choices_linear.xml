@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/common_padding_1"
-                android:background="@drawable/selector_btn_bg"
+                android:background="@drawable/selector_btn_blue"
                 android:text="Button"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/choices_text"/>
@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/common_padding_1"
-                android:background="@drawable/selector_btn_bg"
+                android:background="@drawable/selector_btn_blue"
                 android:text="Button"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/choices_text"/>
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/common_padding_1"
-                android:background="@drawable/selector_btn_bg"
+                android:background="@drawable/selector_btn_blue"
                 android:text="Button"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/choices_text"/>
@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/common_padding_1"
-                android:background="@drawable/selector_btn_bg"
+                android:background="@drawable/selector_btn_blue"
                 android:text="Button"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/choices_text"/>

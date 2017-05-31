@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.paperplanes.knowquiz.R;
 import com.paperplanes.knowquiz.core.GameSettings;
 import com.paperplanes.knowquiz.core.SoundManager;
-import com.paperplanes.knowquiz.data.QuizDatabase;
+import com.paperplanes.knowquiz.database.QuizDatabase;
 import com.paperplanes.knowquiz.model.Category;
 
 import java.util.ArrayList;

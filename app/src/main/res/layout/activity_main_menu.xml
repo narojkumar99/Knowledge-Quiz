@@ -30,7 +30,7 @@
             android:layout_height="@dimen/btn_play_min_height"
             android:layout_centerInParent="true"
             android:onClick="onPlayClick"
-            android:background="@drawable/selector_btn_bg"
+            android:background="@drawable/selector_btn"
             android:drawableTop="@drawable/ic_play"
             android:textStyle="bold"
             android:textSize="@dimen/btn_main_menu_play_text"
@@ -55,7 +55,7 @@
                 android:minHeight="@dimen/btn_main_menu_min_size"
                 android:padding="@dimen/btn_main_menu_padding"
                 android:onClick="onSettingsClick"
-                android:background="@drawable/selector_btn_bg_green"
+                android:background="@drawable/selector_btn_green"
                 android:src="@drawable/ic_settings"/>
 
             <ImageButton
@@ -67,7 +67,7 @@
                 android:minHeight="@dimen/btn_main_menu_min_size"
                 android:padding="@dimen/btn_main_menu_padding"
                 android:onClick="onScoreClick"
-                android:background="@drawable/selector_btn_bg_green"
+                android:background="@drawable/selector_btn_green"
                 android:src="@drawable/ic_chart"/>
 
             <ImageButton
@@ -77,7 +77,7 @@
                 android:minHeight="@dimen/btn_main_menu_min_size"
                 android:padding="@dimen/btn_main_menu_padding"
                 android:onClick="onAboutClick"
-                android:background="@drawable/selector_btn_bg_green"
+                android:background="@drawable/selector_btn_green"
                 android:src="@drawable/ic_about"/>
 
         </LinearLayout>

@@ -30,7 +30,7 @@
             android:onClick="onResetScoreClick"
             android:drawableLeft="@drawable/ic_clear_all"
             android:drawableStart="@drawable/ic_clear_all"
-            android:background="@drawable/selector_btn_bg_green"
+            android:background="@drawable/selector_btn_green"
             android:textSize="@dimen/btn_main_menu_text"
             android:textColor="@android:color/white"
             android:text="@string/reset_score"/>

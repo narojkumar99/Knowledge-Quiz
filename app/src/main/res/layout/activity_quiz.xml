@@ -124,10 +124,8 @@
             android:id="@+id/text_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_margin_2"
-            android:layout_marginLeft="@dimen/common_margin_2"
-            android:layout_marginRight="@dimen/common_margin_2"
-            android:background="@drawable/bg_primary_blue"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/common_padding_2"
             android:textAlignment="center"
             android:textSize="@dimen/question_text"
             android:textColor="@android:color/white"
@@ -143,16 +141,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/common_margin_2"
+                android:paddingBottom="@dimen/common_padding_2"
                 android:visibility="visible"
-                android:background="@drawable/bg_primary_blue">
+                android:background="@color/colorPrimary">
 
                 <ImageView
                     android:id="@+id/image_question"
                     android:layout_width="@dimen/question_img"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/common_margin_1"
-                    android:layout_marginBottom="@dimen/common_margin_1"
                     android:layout_gravity="center_horizontal"
                     android:padding="@dimen/common_padding_1"
                     android:adjustViewBounds="true"
@@ -176,6 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="@dimen/common_margin_2"
                 android:layout_marginBottom="@dimen/common_margin_2">
 
             </FrameLayout>

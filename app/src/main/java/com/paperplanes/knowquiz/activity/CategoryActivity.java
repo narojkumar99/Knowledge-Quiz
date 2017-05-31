@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 
 import com.paperplanes.knowquiz.R;
 import com.paperplanes.knowquiz.core.SoundManager;
-import com.paperplanes.knowquiz.data.QuizDatabase;
+import com.paperplanes.knowquiz.database.QuizDatabase;
 import com.paperplanes.knowquiz.model.Category;
 
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class CategoryActivity extends ActivityFullscreen {
             btn.setText(category.getName());
             int padding = (int)getResources().getDimension(R.dimen.btn_main_menu_padding);
             btn.setPadding(padding, padding, padding, padding);
-            btn.setBackgroundResource(R.drawable.selector_btn_bg);
+            btn.setBackgroundResource(R.drawable.selector_btn);
             btn.setMinWidth(getResources().getDimensionPixelSize(R.dimen.btn_category_min_width));
             btn.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.btn_main_menu_text));
             btn.setTextColor(getResources().getColor(android.R.color.white));
